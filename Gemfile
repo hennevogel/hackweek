@@ -38,7 +38,7 @@ gem 'jquery-rails'
 gem 'jquery-hotkeys-rails'
 gem 'jquery-cookie-rails'
 # as templating language
-gem 'haml-rails'
+gem 'haml-rails', '>= 1.0.0'
 # as authentification framework
 gem 'devise'
 gem 'devise_ichain_authenticatable'
