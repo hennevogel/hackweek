@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'ruby-progressbar', '1.8.1'
 
 # as framework
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 4.2', '>= 4.2.7.1'
 
 # To speedup app startup
 gem 'spring', group: [:development, :test]
@@ -25,7 +25,7 @@ end
 # as databases
 gem 'mysql2'
 # for stylesheets
-gem 'sass-rails',   '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 # for .js.coffee assets
 gem 'coffee-rails', '~> 4.1.0'
 # as the front-end framework
@@ -74,7 +74,7 @@ gem 'capybara', :group => [:development, :test]
 # for file attachments
 gem 'paperclip', '~> 4.1'
 # as interactive debugger in error pages
-gem 'web-console', '~> 2.0', group: :development
+gem 'web-console', '~> 2.3', '>= 2.3.0', group: :development
 # as deployer
 gem 'mina', '~> 0.3'
 
