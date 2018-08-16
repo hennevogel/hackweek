@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # as framework
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.2.10'
 # as databases
 gem 'mysql2'
 gem 'sqlite3'
