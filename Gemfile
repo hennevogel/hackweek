@@ -71,7 +71,7 @@ gem 'faker', :group => [:development, :test]
 gem 'rspec-rails', :group => [:development, :test]
 gem 'capybara', :group => [:development, :test]
 # for file attachments
-gem 'paperclip', '~> 4.1'
+gem 'paperclip', '~> 6.1'
 # as interactive debugger in error pages
 gem 'web-console', '~> 2.0', group: :development
 
