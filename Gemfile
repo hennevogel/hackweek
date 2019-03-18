@@ -41,8 +41,8 @@ gem 'jquery-cookie-rails'
 # as templating language
 gem 'haml-rails'
 # as authentification framework
-gem 'devise'
-gem 'devise_ichain_authenticatable'
+gem 'devise', '>= 4.6.0'
+gem 'devise_ichain_authenticatable', '>= 0.3.1'
 # as authorization framework
 gem 'cancancan'
 # for user avatars
