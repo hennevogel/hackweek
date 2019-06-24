@@ -39,7 +39,7 @@ gem 'impressionist'
 # as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # as JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.4'
 gem 'jquery-hotkeys-rails'
 gem 'js_cookie_rails'
 gem 'jquery-atwho-rails'
