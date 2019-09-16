@@ -46,7 +46,7 @@ gem 'jquery-atwho-rails'
 # as templating language
 gem 'haml-rails'
 # as authentification framework
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 gem 'devise_ichain_authenticatable', github: 'hennevogel/devise_ichain_authenticatable', branch: 'bugfix/rails_5_filter_names'
 # as authorization framework
 gem 'cancancan'
