@@ -94,7 +94,7 @@ group :test do
   # for cleaning the test DB
   gem 'database_cleaner'
   # for measuring test coverage
-  gem 'coveralls', :require => false
+  gem 'coveralls', '>= 0.8.23', :require => false
   # as style hound
   gem 'rubocop'
   gem 'rubocop-rspec'
