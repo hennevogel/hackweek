@@ -68,7 +68,7 @@ gem 'mousetrap-rails'
 # as search engine
 gem 'thinking-sphinx'
 # for pagination
-gem 'kaminari'
+gem 'kaminari', '>= 1.2.1'
 # for slugs
 gem 'stringex'
 # for seeds
