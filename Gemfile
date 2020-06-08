@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'ruby-progressbar', '1.10.1'
 
 # as framework
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 5.2', '>= 5.2.3'
 
 # To speedup app startup
 gem 'spring', group: [:development, :test]
@@ -16,7 +16,7 @@ gem 'spring-watcher-listen', '~> 2.0.0', group: [:development, :test]
 gem 'jquery-ui-rails'
 
 # To use jQuery's autocomplete with Rails
-gem 'rails-jquery-autocomplete'
+gem 'rails-jquery-autocomplete', '>= 1.0.5'
 
 # Misc tools for fancy development
 group :development, :test do
@@ -102,5 +102,5 @@ group :test do
   gem 'timecop'
 
   # Let's add real browser testing to our features (required to test AJAX)
-  gem 'poltergeist'
+  gem 'poltergeist', '>= 1.18.1'
 end
