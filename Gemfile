@@ -53,7 +53,7 @@ gem 'cancancan'
 # for user avatars
 gem 'gravtastic'
 # for markdown rendering
-gem 'redcarpet'
+gem 'redcarpet', '>= 3.5.1'
 # for token input
 gem 'selectize-rails'
 # as state machine

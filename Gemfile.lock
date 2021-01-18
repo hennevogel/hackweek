@@ -256,7 +256,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rbtree3 (0.6.0)
-    redcarpet (3.5.0)
+    redcarpet (3.5.1)
     regexp_parser (1.6.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -400,7 +400,7 @@ DEPENDENCIES
   rails (~> 5.2)
   rails-controller-testing
   rails-jquery-autocomplete
-  redcarpet
+  redcarpet (>= 3.5.1)
   rspec-rails
   rubocop
   rubocop-rspec
@@ -416,4 +416,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
