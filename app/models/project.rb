@@ -30,8 +30,10 @@ class Project < ApplicationRecord
   after_create :create_initial_update
   after_create :assign_episode
 
-  after_save ThinkingSphinx::RealTime.callback_for(:project)
-  acts_as_url :title, blacklist: %w[new archived finished newest popular biggest random]
+  @SPHINX_INDEX_NAME = :LALALA
+  after_save :populate_to_sphinx
+
+  acts_as_url :title, blacklist: %w{new archived finished newest popular biggest random}
 
   aasm do
     state :idea, initial: true

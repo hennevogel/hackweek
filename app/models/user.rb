@@ -28,7 +28,8 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :roles
 
-  after_save ThinkingSphinx::RealTime.callback_for(:user)
+  @SPHINX_INDEX_NAME = :user
+  after_save :populate_to_sphinx
 
   include Gravtastic
   has_gravatar default: 'retro'
