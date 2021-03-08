@@ -1,6 +1,7 @@
 Sentry.init do |config|
   config.dsn = ENV['HACKWEEK_SENTRY_DSN']
   config.breadcrumbs_logger = [:active_support_logger]
+  config.enabled_environments = %w[production]
 
   # To activate performance monitoring, set one of these options.
   # We recommend adjusting the value in production:
