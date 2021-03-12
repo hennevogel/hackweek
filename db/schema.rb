@@ -102,6 +102,11 @@ ActiveRecord::Schema.define(version: 2021_03_12_233011) do
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.bigint "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "keywords_projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
