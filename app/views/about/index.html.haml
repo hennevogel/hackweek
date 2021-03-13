@@ -80,6 +80,7 @@
               - else
                 Explore all the projects about
                 = keyword.name
+      = link_to "Load more", keywords_path(page: @posts.current_page+1), id: "load-more-posts", remote: true
     .col-sm-3
       %h2
         Popular topics

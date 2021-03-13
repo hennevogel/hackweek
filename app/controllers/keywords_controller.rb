@@ -5,14 +5,21 @@ class KeywordsController < ApplicationController
   def index
     respond_to do |format|
       format.json do
-        render json: { keywords: Keyword.find_keyword(params[:q]) }
+        @keywords = Keyword.forall.page(params[:page]).per(5)
       end
     end
   end
 
   def show
-    @projects = Project.by_episode(@episode).by_keyword(@keyword).includes(:originator, :users, :kudos).page(params[:page]).per(params[:page_size])
-    render 'projects/index'
+    respond_to do |format|
+      format.html do
+        @projects = Project.by_episode(@episode).by_keyword(@keyword).includes(:originator, :users, :kudos).page(params[:page]).per(params[:page_size])
+        render 'projects/index'
+      end
+      format.json do
+        render json: { keywords: Keyword.find_keyword(params[:q]) }
+      end
+    end
   end
 
   # GET /keywords/1/edit
