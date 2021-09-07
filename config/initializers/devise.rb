@@ -200,26 +200,6 @@ Devise.setup do |config|
   # Defines name of the authentication token params key
   # config.token_authentication_key = :auth_token
 
-  # ==> Configuration for :ichain_*
-  # You will always need to set this parameter.
-  config.ichain_base_url = 'https://hackweek.suse.com'
-
-  # The header used by your iChain proxy to pass the username.
-  # config.ichain_username_header = "HTTP_X_USERNAME"
-
-  # Additional parameters, beyond the username, provided by the iChain proxy.
-  # HTTP_X_EMAIL is expected by default. Set to {} if no additional attributes
-  # are configured in the proxy.
-  # config.ichain_attributes_header = {:email => "HTTP_X_EMAIL"}
-
-  # Configuration options for requests sent to the iChain proxy
-  # config.ichain_context = "default"
-  # config.ichain_proxypath = "reverse"
-
-  # Activate the test mode, useful when no real iChain is present, like in
-  # testing and development environments
-  # config.ichain_test_mode = true
-
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
@@ -252,14 +232,21 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :okta, ENV['HACKWEEK_OKTA_CLIENT_ID'], ENV['HACKWEEK_OKTA_CLIENT_SECRET'], {
+    client_options: { site:          ENV['HACKWEEK_OKTA_URL'],
+                      authorize_url: "#{ENV['HACKWEEK_OKTA_URL']}/oauth2/default/v1/authorize",
+                      token_url:     "#{ENV['HACKWEEK_OKTA_URL']}/oauth2/default/v1/token",
+                      user_info_url: "#{ENV['HACKWEEK_OKTA_URL']}/oauth2/default/v1/userinfo"
+                    }
+  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  config.warden do |manager|
-    manager.failure_app = CustomFailure
-  end
+  # config.warden do |manager|
+  #   manager.failure_app = CustomFailure
+  # end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine

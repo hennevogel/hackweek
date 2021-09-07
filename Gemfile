@@ -36,7 +36,8 @@ gem 'js_cookie_rails'
 gem 'haml-rails'
 # as authentification framework
 gem 'devise'
-gem 'devise_ichain_authenticatable'
+gem 'omniauth-okta'
+gem 'omniauth-rails_csrf_protection'
 # as authorization framework
 gem 'cancancan'
 # for user avatars

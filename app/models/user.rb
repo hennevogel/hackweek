@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :ichain_authenticatable, :ichain_registerable
+  devise :omniauthable, omniauth_providers: [:okta]
 
   validates :name, presence: true
   validates :email, presence: true
@@ -83,14 +83,14 @@ class User < ApplicationRecord
     recommended.uniq
   end
 
-  def self.for_ichain_username(username, attributes)
-    attributes = attributes.with_indifferent_access
-    user = find_by(name: username)
-    if user
-      user.update_attributes(email: attributes[:email]) if user.email != attributes[:email]
-    else
-      user = create(name: username, email: attributes[:email])
-    end
+  def self.from_omniauth(auth)
+    user = find_or_initialize_by(uid: auth.uid)
+    user.email = auth.info.email
+    # user.password = Devise.friendly_token[0, 20]
+    # user.name = auth.info.name   # assuming the user model has a name
+    # user.image = auth.info.image # assuming the user model has an image
+
+    user.save
     user
   end
 end

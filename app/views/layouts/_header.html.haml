@@ -52,7 +52,7 @@
                   %i.fa.fa-pencil-square-o
                   Edit Profile
               %li
-                = link_to(destroy_user_ichain_session_path, :method => :delete, :id => "logout-link") do
+                = link_to(destroy_user_session_path, :method => :delete, :id => "logout-link") do
                   %i.fa.fa-power-off
                   Log out
               - if current_user.role?(:organizer) || current_user.role?(:admin)
@@ -73,7 +73,7 @@
               %i.fa.fa-home
               Home
           %li
-            = link_to(destroy_user_ichain_session_path, :method => :delete, :id => "logout-link") do
+            = link_to(destroy_user_session, :method => :delete, :id => "logout-link") do
               %i.fa.fa-power-off
               Log out
           - if current_user.role? :organizer
@@ -81,7 +81,7 @@
       - else
         %ul.nav.navbar-nav.navbar-right
           %li
-            = link_to(new_user_ichain_session_path, :id => "login-link") do
+            = link_to(user_okta_omniauth_authorize_path, method: :post, id: 'login-link') do
               %i.fa.fa-signin
               Sign In
       %form{:role=>"search", :method=>"get", :class=>"navbar-form navbar-right", :action=>"#{search_projects_path(@episode)}", "accept-charset"=>"UTF-8"}

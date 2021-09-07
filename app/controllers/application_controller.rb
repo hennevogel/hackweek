@@ -32,10 +32,7 @@ class ApplicationController < ActionController::Base
   def store_location
     return unless request.get?
 
-    if request.path != new_user_ichain_session_path &&
-       request.path != new_user_ichain_registration_path &&
-       !request.path.starts_with?(Devise.ichain_base_url) &&
-       !request.xhr?
+    if request.path != user_okta_omniauth_authorize_path && !request.xhr?
       session[:return_to] = request.fullpath
     end
   end
