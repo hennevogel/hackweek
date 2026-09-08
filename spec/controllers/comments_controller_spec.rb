@@ -4,6 +4,7 @@ describe CommentsController do
   let(:user) { create(:admin) }
 
   before do
+    create(:active_episode)
     sign_in user
   end
 

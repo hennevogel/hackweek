@@ -7,6 +7,7 @@ feature 'Comment' do
   let(:comment_text) { Faker::Lorem.sentence }
 
   before :each do
+    create(:active_episode)
     sign_in user
   end
 

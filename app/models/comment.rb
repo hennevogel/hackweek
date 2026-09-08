@@ -8,12 +8,12 @@ class Comment < ApplicationRecord
 
   validates_presence_of :commenter_id, :text, :commentable_id
 
+  validate :must_have_active_episode
+
   ThinkingSphinx::Callbacks.append(self, behaviours: [:real_time])
 
   def project
-    return @project if defined?(@project)
-
-    @project = commentable.is_a?(Project) ? commentable : commentable.project
+    commentable.is_a?(Project) ? commentable : commentable.project
   end
 
   def send_notification(sender, message)
@@ -22,5 +22,13 @@ class Comment < ApplicationRecord
     recipients.each do |recipient|
       Notification.create(recipient: recipient, actor: sender, action: message, notifiable: project)
     end
+  end
+
+  private
+
+  def must_have_active_episode
+    return if project.episodes.where(active: true).any?
+
+    errors.add(:hackweek, 'must be active')
   end
 end

@@ -5,6 +5,8 @@ describe 'Ability' do
   subject(:ability) { Ability.new(user) }
   let(:user) { nil }
 
+  before { create(:active_episode) }
+
   context 'when user is a normal user' do
     let(:user) { create(:user) }
     let(:other_user) { create(:user) }
