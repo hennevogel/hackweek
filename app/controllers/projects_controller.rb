@@ -76,7 +76,6 @@ class ProjectsController < ApplicationController
       @project.project_followers << current_user
       redirect_to project_path(@episode, @project), notice: 'Project was successfully created.'
     else
-      logger.info "Blocked spam project from #{current_user.name}" if @project.errors.of_kind?(:base, 'is spam')
       render action: 'new'
     end
   end
@@ -88,7 +87,6 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to project_path(@episode, @project)
     else
-      logger.info "Blocked spam project from #{current_user.name}" if @project.errors.of_kind?(:base, 'is spam')
       render action: 'edit'
     end
   end
